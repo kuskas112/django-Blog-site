@@ -1,0 +1,17 @@
+.aboutContent {
+	font-size: 40px;
+  	font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  	margin-bottom: 20px;
+  	display: flex;
+  	flex-direction: row;
+}
+
+.aboutImage {
+	border-radius: 50%;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+
+}

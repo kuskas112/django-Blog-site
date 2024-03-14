@@ -1,0 +1,42 @@
+{% extends "blog/index.html" %}
+
+{% block head %}
+  {% load static %}
+{% endblock %}
+
+{% block content %}
+  <div class="mainSubText">
+    <h2>{{ post.title }}</h2>
+    {% autoescape off %}
+    {{ post.content|linebreaks }}
+    {% endautoescape %}
+  </div>
+  <div class="maintext">
+
+  {% if request.user.is_authenticated %}
+    <h2 style="margin: 20px">Добавить комментарий</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div style="display: flex;">
+      {{ form.content }}
+      <button style="margin: 0px; margin-bottom: 20px; margin-left: 20px; margin-top: 50px;" class="searchButton" type="submit">Добавить</button>
+      </div>
+      <hr>
+    </form>
+  {% else %}
+    <div class="maintext">Авторизуйтесь, чтобы оставить комментарий.</div>
+  {% endif %}
+    
+
+    <h1>Комментарии</h1>
+
+    {% for com in comments %}
+      <div class="comment_content">
+        <span class="comment_name"><b>{{com.username}}</b></span> 
+        <span>{{com.time_create}}</span>
+        <p>{{com.content}}</p>
+      </div>
+    {% endfor %}
+  </div>
+
+{% endblock %}

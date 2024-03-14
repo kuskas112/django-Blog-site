@@ -1,0 +1,38 @@
+{% extends "blog/index.html" %}
+
+{% block head %}
+  {% load static %}
+{% endblock %}
+
+{% block content %}
+  <form action="{% url 'search' %}" method="get">
+    <div class="searchForm">
+      <input type="search" type="text" name="q" placeholder="Поиск статьи">
+      <button class="searchButton" type="submit">Найти</button>
+    </div>
+    
+  </form>
+
+  <div class="maintext">
+      {% for p in posts %}
+      <ul style="margin: 5px;">
+          <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <h2 style="margin-top: 5px;">{{p.title}}</h2>
+            <div style="background-color: #70e7d485; padding: 10px;">
+              <div>Создано: {{p.time_create}}</div>
+              <div>Изменено: {{p.time_update}}</div>
+            </div>
+          </div>
+          {% autoescape off %}
+          <p>{{p.content|linebreaks|truncatewords:20}}</p>
+          {% endautoescape %}
+          <div>
+            <a href="{{ p.get_absolute_url }}" class="read-post-button">Читать пост</a>
+          </div>
+          <hr>
+      </ul>
+
+      {% endfor %}
+  </div>
+
+{% endblock %}

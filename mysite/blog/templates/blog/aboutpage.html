@@ -1,0 +1,18 @@
+{% extends "blog/index.html" %}
+
+{% block head %}
+  {% load static %}
+{% endblock %}
+
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'blog/css/aboutStyle.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="aboutContent">
+    <div>
+      <img class = "aboutImage" src="{% static 'blog/images/me.jpg' %}" width="500" height="500" alt="wednesday image">
+    </div>
+    Это я, я создал этот сайт в качестве обучения основам django, он делался в свободное время и на энтузиазме. Но сайт был заброшен на пол пути, однако практика в ОГУ вынудила меня его закончить. В целом это все.
+</div>
+{% endblock %}
